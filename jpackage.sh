@@ -1,8 +1,10 @@
 #!/usr/bin/bash
 if [[ $(uname) == "Linux" ]]; then
-    jpackage --input jar/ --main-jar App.jar --main-class App --type app-image --dest dist/ --name App --icon src/icon.ico --java-options -Xmx1g
+    jpackage --input jar/ --main-jar App.jar --main-class App --type app-image --dest dist/ --name App --icon icon.png --java-options -Xmx1g
+    if [ -d "./dist/linux" ]; then
+        rm -r ./dist/linux
+    fi
     mv ./dist/App ./dist/linux
-    mv ./dist/linux/bin ./dist/linux/game
 fi
 
 if [[ $(uname) == "Darwin" ]]; then
@@ -10,7 +12,12 @@ if [[ $(uname) == "Darwin" ]]; then
 fi
 
 if [[ $(uname -a) == *"CYGWIN"* ]] || [[ $(uname -a) == *"MINGW"* ]] || [[ $(uname -a) == *"MSYS"* ]]; then
-    jpackage --input jar/ --main-jar App.jar --main-class App --type app-image --dest dist/ --name App --icon src/icon.ico --java-options -Xmx1g
+    mv ./icon.png ./icon.ico
+    jpackage --input jar/ --main-jar App.jar --main-class App --type app-image --dest dist/ --name App --icon icon.ico --java-options -Xmx1g
+    mv ./icon.ico ./icon.png
+    if [ -d "./dist/windows" ]; then
+        rm -r ./dist/windows
+    fi
     mv ./dist/App ./dist/windows
 fi
 
