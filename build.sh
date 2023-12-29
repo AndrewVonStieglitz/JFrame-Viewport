@@ -1,4 +1,4 @@
 #!/usr/bin/bash
-mkdir build
-jar cvfe App.jar App -C bin .
-mv App.jar build/
+javac -d bin src/*.java
+cp src/*.png bin/
+java -cp bin App
