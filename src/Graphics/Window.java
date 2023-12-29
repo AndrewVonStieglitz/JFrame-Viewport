@@ -1,4 +1,7 @@
+package Graphics;
+
 import javax.swing.*;
+
 import java.awt.*;
 
 public class Window {
@@ -9,7 +12,7 @@ public class Window {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1920, 1080);
 
-        Sprite sprite = new Sprite("/Person.png", 0, 0);
+        Sprite sprite = new Sprite("/Sprites/Person.png", 0, 0);
 
         JPanel panel = new JPanel() {
             @Override
