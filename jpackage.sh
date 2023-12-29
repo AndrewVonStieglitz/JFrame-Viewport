@@ -1,4 +1,8 @@
 #!/usr/bin/bash
+javac -d bin src/*.java
+cp src/*.png bin/
+jar cvfe jar/App.jar App -C bin .
+
 if [[ $(uname) == "Linux" ]]; then
     jpackage --input jar/ --main-jar App.jar --main-class App --type app-image --dest dist/ --name App --icon icon.png --java-options -Xmx1g
     if [ -d "./dist/linux" ]; then
