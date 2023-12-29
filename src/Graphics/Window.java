@@ -13,6 +13,7 @@ public class Window {
         frame.setSize(1920, 1080);
 
         Sprite sprite = new Sprite("/Sprites/Person.png", 0, 0);
+        Sprite sprite2 = new Sprite("/Sprites/Person.png", 200, 200);
 
         JPanel panel = new JPanel() {
             @Override
@@ -29,6 +30,7 @@ public class Window {
                 // Draw the sprite relative to the viewport
                 Graphics gViewport = g.create(viewportX, viewportY, viewportWidth, viewportHeight);
                 sprite.draw(gViewport, scaleFactor);
+                sprite2.draw(gViewport, scaleFactor);
 
                 // Draw rectangle representing the viewport
                 g.drawRect(viewportX, viewportY, viewportWidth, viewportHeight);

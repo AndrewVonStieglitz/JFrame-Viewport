@@ -24,8 +24,10 @@ public class Sprite {
     }
 
     public void draw(Graphics g, double scaleFactor) {
+        int scaledX = (int) (x * scaleFactor);
+        int scaledY = (int) (y * scaleFactor);
         int scaledWidth = (int) (width * scaleFactor);
         int scaledHeight = (int) (height * scaleFactor);
-        g.drawImage(image, x, y, scaledWidth, scaledHeight, null);
+        g.drawImage(image, scaledX, scaledY, scaledWidth, scaledHeight, null);
     }
 }
